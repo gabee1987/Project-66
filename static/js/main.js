@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    createPlanetsTable();
     $('#residents-modal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget);
         var planet = button.data('planet-name');
@@ -18,7 +19,7 @@ $(document).ready(function() {
             changeTableData(newData);
             updatePageButtons(newData);
         });
-    })
+    });
     $('#btn-prev').on('click', function() {
         var prevPage = $(this).data('previous');
         $.get(prevPage, function(result) {
@@ -26,7 +27,7 @@ $(document).ready(function() {
             changeTableData(newData);
             updatePageButtons(newData);
         })
-    })
+    });
     $('#planets-modal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget);
         var modal = $(this);
@@ -34,21 +35,87 @@ $(document).ready(function() {
         $.getJSON('/voted-planets', function(result) {
             displayPlanets(result);
         });
-    })
+    });
     $('#main-table').on('click', '.btn-vote', function() {
         $.get('/vote', { 'planet-url' : $(this).data('planet-url')}, function(result) {
             $('#vote-modal').modal({ 'show': true});
-        })
-    })
-})
+        });
+    });
+});
+
+
+function createPlanetsTable() {
+    var planetsUrl = 'https://swapi.co/api/planets/';
+    $.ajax({
+            type: 'GET',
+            url: planetsUrl,
+            dataType: 'json',
+            success: function(response) {
+                fillPlanetsTable(response);
+            },
+            error: function() {
+                alert('Error in network request!');
+            } 
+        });
+
+    function fillPlanetsTable(response) {
+        var planetsData = response['results'];
+        $('#planet-table').html('');
+        for (let i = 0; i < planetsData.length; i++) {
+        var planet = planetsData[i];
+        $("#planet-table").append('<tr class="planet-data" id="data-row-' + i + '"></tr>');
+        $("#data-row-" + i).append('<td>' + planet['name'] + '</td>');
+        if (planet['diameter'] !== 'unknown') {
+            $("#data-row-" + i).append('<td>' + Number(planet['diameter']).toLocaleString('en') + ' km </td>');
+        } else {
+            $("#data-row-" + i).append('<td>' + planet['diameter'] + '</td>');
+        }
+        $("#data-row-" + i).append('<td>' + planet['climate'] + '</td>');
+        $("#data-row-" + i).append('<td>' + planet['terrain'] + '</td>');
+        if (planet['surface_water'] !== 'unknown') {
+            var waterSuffix = ' %';
+        } else {
+            var waterSuffix = '';
+        }
+        $("#data-row-" + i).append('<td>' + planet['surface_water'] + waterSuffix + '</td>');
+        if (planet['population'] !== 'unknown') {
+            if (planet['population'] > 1) {
+                var populationSuffix = ' people';
+            } else {
+                var populationSuffix = ' person';
+            }
+            $("#data-row-" + i).append('<td>' + Number(planet['population']).toLocaleString('en') + populationSuffix + '</td>');
+        } else {
+            $("#data-row-" + i).append('<td>' + planet['population'] + '</td>');
+        }
+        if (planet['residents'].length === 0) {
+            $("#data-row-" + i).append('<td> No known residents </td>');
+        } else {
+            if (planet['residents'].length > 1) {
+                var residentSuffix = 's';
+            } else {
+                var residentSuffix = '';
+            }
+            $("#data-row-" + i).append('<td><button class="btn btn-default" data-toggle="modal" data-target="#residents-modal" data-planet-name="' + 
+                                        planet['name'] + '" data-planet-url="' + planet['url'] + '">' + planet['residents'].length + ' resident' + 
+                                        residentSuffix + '</button></td>');
+        }
+        if (!$("#btn-login").length) {
+            $("#data-row-" + i).append('<td><button class="btn btn-default btn-vote" data-planet-url="' + planet['url'] +
+                                        '"><span class="glyphicon glyphicon-plus"></span></button></td>');
+        }
+    }
+    }
+    
+}
 
 
 function changeTableData(newData) {
     var newPlanets = newData['results'];
-    $('.planet-data').remove();
+    $('#planet-table').html('');
     for (let i = 0; i < newPlanets.length; i++) {
         var planet = newPlanets[i];
-        $("#main-table").append('<tr class="planet-data" id="data-row-' + i + '"></tr>');
+        $("#planet-table").append('<tr class="planet-data" id="data-row-' + i + '"></tr>');
         $("#data-row-" + i).append('<td>' + planet['name'] + '</td>');
         if (planet['diameter'] !== 'unknown') {
             $("#data-row-" + i).append('<td>' + Number(planet['diameter']).toLocaleString('en') + ' km </td>');

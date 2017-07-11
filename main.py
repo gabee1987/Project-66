@@ -5,7 +5,6 @@ import json
 from db_connect import *
 
 app = Flask(__name__)
-app.secret_key = "Transmission commencing"
 
 
 @app.route('/register', methods=['GET'])
