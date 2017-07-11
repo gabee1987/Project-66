@@ -11,7 +11,6 @@ app.secret_key = credentials.secret_key
 
 @app.route('/')
 def main_page():
-    planet_data = requests.get('https://swapi.co/api/planets').json()
     if 'username' in session:
         user = session['username']
     else:

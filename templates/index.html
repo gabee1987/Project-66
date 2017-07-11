@@ -129,9 +129,12 @@
                 <table id="swapiPlanetsTable" class="table table-hover table-responsive">
                     <thead>
                         <tr>
-                            {% for header in table_headers %}
+                            {% for header in ['Name', 'Diameter', 'Climate', 'Terrain', 'Surface water', 'Population', 'Residents'] %}
                             <th class="planets-header">{{ header }}</th>
                             {% endfor %}
+                            {% if username %}
+                            <th class="planets-header">Vote</th>
+                            {% endif %}
                         </tr>
                     </thead>
                     <tbody id="planet-table">
