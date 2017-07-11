@@ -181,7 +181,7 @@ function updatePageButtons(newData) {
 function displayResidents(residentURLs) {
     for (let i = 0; i < residentURLs.length; i++) {
         $.get(residentURLs[i], function(resident) {
-            $('#modal-table').append('<tr class="modal-row" id="mtable-row-' + i +'"></tr>');
+            $('#residents-table').append('<tr class="modal-row" id="mtable-row-' + i +'"></tr>');
             $('#mtable-row-' + i).append('<td>' + resident['name'] + '</td>');
             $('#mtable-row-' + i).append('<td>' + (resident['height'] !== 'unknown' ? (resident['height'] / 100 + ' m</td>') : (resident['height'] + '</td>')));
             $('#mtable-row-' + i).append('<td>' + resident['mass'] + (resident['mass'] === 'unknown' ? '</td>' : ' kg</td>'));
@@ -198,7 +198,7 @@ function displayResidents(residentURLs) {
 function displayPlanets(result) {
     for (let i = 0; i < result.length; i++) {
         $.get('https://swapi.co/api/planets/' + result[i]['planet_id'] + '/', function(planetData) {
-            $('#planet-modal-table').append('<tr class="modal-row" id="pmtable-row-' + i + '"></tr>');
+            $('#statistics-table').append('<tr class="modal-row" id="pmtable-row-' + i + '"></tr>');
             $('#pmtable-row-' + i).append('<td>' + planetData['name'] + '</td>');
             $('#pmtable-row-' + i).append('<td>' + result[i]['votes'] + '</td>');
         })
