@@ -15,35 +15,31 @@ def main_page():
         user = session['username']
     else:
         user = None
-    return render_template('index.html', planet_data=planet_data, username=user)
+    return render_template('index.html', username=user)
 
 
 @app.route('/login', methods=['GET'])
 def show_login():
-    return render_template('form.html', action='Login', route='/login', title='Login')
+    return render_template('login.html')
 
 
 @app.route('/login', methods=['POST'])
 def do_login():
     username = request.form['username']
     password = request.form['password']
-    rebel = request.form.get('rebel')
     hashed_password = hashlib.sha256(str.encode(password)).hexdigest()
     user_id = bll.validate_user(username, hashed_password)
-    if not rebel:
-        return render_template('rebellion.html')
     if user_id:
         session['username'] = username
         session['userid'] = user_id
         return redirect('/')
     else:
-        return render_template('form.html', action='Login', route='/login', title='Login',
-                               login_error=True, username=username)
+        return render_template('login.html', username=username)
 
 
 @app.route('/register', methods=['GET'])
 def show_register():
-    return render_template('form.html', action='Register', route='/register', title='Registration')
+    return render_template('register.html')
 
 
 @app.route('/register', methods=['POST'])
@@ -55,8 +51,7 @@ def do_register():
     if user_id > 0:
         return redirect('/login')
     else:
-        return render_template('form.html', action='Register', route='/register', title='Registration',
-                               reg_error=True, username=username)
+        return render_template('register.html', reg_error=True, username=username)
 
 
 @app.route('/logout')
@@ -99,4 +94,4 @@ def internal_server_error(e):
     return render_template('500.html'), 500
 
 if __name__ == '__main__':
-    app.run(debug=None)
+    app.run(debug=True)
