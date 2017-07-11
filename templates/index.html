@@ -7,25 +7,31 @@
             content="A little web application which shows data about the Star Wars universe, store visitor preferences with cookies and handle user login with sessions.">
         <meta name="apple-mobile-web-app-title" content="Star Wars">
         <link rel="icon" href="/static/images/favicon.ico">
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
             integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
             crossorigin="anonymous">
+
         <!-- Own CSS -->
         <link rel="stylesheet" href="/static/css/index.css">
+
         <!-- Google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script
             src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
             integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
             crossorigin="anonymous"></script>
+
         <!-- Bootstrap Javascript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/a8063379b9.js"></script>
+
         <!-- Own Javascript -->
         <script src="/static/js/swapiApi.js" defer></script>
         <script src="/static/js/main.js" defer></script>
@@ -36,7 +42,7 @@
     <body>
 
         <!-- Modal for residents -->
-        <div class="modal fade" id="residentsModal" tabindex="-1" role="dialog" aria-labelledby="residentsModal">
+        <div class="modal fade" id="residents-modal" tabindex="-1" role="dialog" aria-labelledby="residentsModal">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -116,19 +122,19 @@
             </div>
             <br>
             <!-- Page swap buttons -->
-            <button id="previousPage" type="button" class="btn btn-primary" data-pageNumber="1"> Previous </button>
-            <button id="nextPage" type="button" class="btn btn-primary" data-pageNumber="1"> Next </button>
+            <button id="btn-prev" type="button" class="btn btn-primary" data-pageNumber="1"> Previous </button>
+            <button id="btn-next" type="button" class="btn btn-primary" data-pageNumber="1"> Next </button>
             <button id="statistics" type="button" class="btn btn-primary" data-toggle="modal" data-target="#statisticsModal"> Statistics </button>
             <!-- Table -->
                 <table id="swapiPlanetsTable" class="table table-hover table-responsive">
                     <thead>
                         <tr>
                             {% for header in table_headers %}
-                            <th class="planetsHeader">{{ header }}</th>
+                            <th class="planets-header">{{ header }}</th>
                             {% endfor %}
                         </tr>
                     </thead>
-                    <tbody id="planetsTable">
+                    <tbody id="planet-table">
 
                         <!-- Planets comes here -->
 
