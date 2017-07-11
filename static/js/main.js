@@ -28,7 +28,7 @@ $(document).ready(function() {
             updatePageButtons(newData);
         })
     });
-    $('#planets-modal').on('show.bs.modal', function(event) {
+    $('#statisticsModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget);
         var modal = $(this);
         modal.find('.modal-row').remove();
@@ -36,7 +36,7 @@ $(document).ready(function() {
             displayPlanets(result);
         });
     });
-    $('#main-table').on('click', '.btn-vote', function() {
+    $('#swapiPlanetsTable').on('click', '.btn-vote', function() {
         $.get('/vote', { 'planet-url' : $(this).data('planet-url')}, function(result) {
             $('#vote-modal').modal({ 'show': true});
         });
@@ -198,7 +198,7 @@ function displayResidents(residentURLs) {
 function displayPlanets(result) {
     for (let i = 0; i < result.length; i++) {
         $.get('https://swapi.co/api/planets/' + result[i]['planet_id'] + '/', function(planetData) {
-            $('#statistics-table').append('<tr class="modal-row" id="pmtable-row-' + i + '"></tr>');
+            $('#statisticsTable').append('<tr class="modal-row" id="pmtable-row-' + i + '"></tr>');
             $('#pmtable-row-' + i).append('<td>' + planetData['name'] + '</td>');
             $('#pmtable-row-' + i).append('<td>' + result[i]['votes'] + '</td>');
         })
