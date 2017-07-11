@@ -1,0 +1,402 @@
+/* Index page CSS for The-world-of-Star-Wars assignment 
+    by Gabor Koncz
+*/
+
+
+/* 
+==========================================================================
+Globals
+==========================================================================
+*/
+
+html {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background-color: #1b1b1b; 
+}
+
+
+
+/* 
+==========================================================================
+Page header
+==========================================================================
+*/
+
+
+.jumbotron {
+    height: 350px;
+    -webkit-font-smoothing: antialiased;
+    background-image: url('/static/images/header_bg.jpeg');
+    background-position-x: -200px;
+    background-attachment: fixed;
+    margin: -20px auto;
+    padding: 1.5%;
+    box-sizing: border-box;
+}
+
+#sw-logo {
+    display: block;
+    top: 50%;
+    width: 100%;
+    max-width: 350px;
+    height: 100%;
+    max-height: 130px;
+	margin-left: 600px;
+    margin: 70px auto;
+    box-sizing: border-box;
+    background-size: contain;
+}
+
+#jumbotron-fadOut {
+	background-color:#000;
+	opacity:0.0;
+}
+
+/* 
+==========================================================================
+Navbar
+==========================================================================
+*/
+
+
+.navbar {
+	-webkit-font-smoothing: antialiased;
+    border-radius: 0;
+	border-bottom: 1px solid #edec51; 
+}
+
+.navbar-inverse .navbar-header > a:hover, .navbar-header > a:focus {
+    color: #edec51;
+}
+
+.nav p {
+	-webkit-font-smoothing: antialiased;
+	padding-top: 15px;
+	padding-right: 15px;
+	color: #ddd;
+}
+
+.nav a {
+	margin-right: 15px;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #edec51;
+}
+
+ .navbar .navbar-nav > .active > a, 
+ .navbar .navbar-nav > .active > a:hover, 
+ .navbar .navbar-nav > .active > a:focus {
+	color: #edec51;
+    background: #222222;
+	border-bottom: 2px solid #edec51;
+
+ }
+
+
+.affix {
+    top: 0;
+    width: 100%;
+	border-bottom: 0.5px solid #edec51;
+	box-shadow: 0px 5px 15px #1b1b1b;
+}
+
+.affix img {
+	padding-top: 5px;
+	display: block;
+	margin: auto 750px;
+}
+
+.affix + .container-fluid {
+    padding-top: 70px;
+}
+
+
+/* 
+==========================================================================
+Body
+==========================================================================
+*/
+
+
+#page-title h2 {
+	-webkit-font-smoothing: antialiased;
+    margin: 0 0 10px;
+    font-size: 3rem;
+    line-height: 1.35rem;
+    color: #ddd;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+}
+
+#page-title p {
+    font-size: 1.8rem;
+    color: #ddd;
+}
+
+
+/* 
+==========================================================================
+Buttons
+==========================================================================
+*/
+
+.btn-primary, .btn-default {
+	-webkit-font-smoothing: antialiased;
+    background-color: #242424;
+    border-color: #262626;
+    color: #ddd;
+}
+
+.btn-primary:hover, .vote:hover, .btn-default:hover {
+    background-color: #060606;
+    border-color: #060606;
+	color: #edec51;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:visited, .btn-default:active, .btn-default:focus, .btn-default:visited {
+	color: #edec51;
+    background-color: #2a2a2a !important;
+    border-color: #2a2a2a !important; 
+}
+
+.residents {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.residents:hover {
+	color: #edec51;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.vote {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+/*
+.vote:hover {
+	color: #edec51;
+	background-color: transparent;
+	border-color: transparent;
+*/
+
+/* 
+==========================================================================
+Table
+==========================================================================
+*/
+
+.table th {
+	-webkit-font-smoothing: antialiased;
+	border-top: transparent;
+    background-color: #1b1b1b;
+    font-size: 1.5em;
+	font-weight: 400;
+    color: #ddd;
+}
+
+.table thead {
+	border-top: transparent;
+}
+
+.table td {
+    color: #ddd;
+    border-bottom: 0.5px solid #2a2a2a;
+}
+
+.table-hover tbody tr:hover td {
+    background-color: #1e1e1e;
+}
+
+.residents {
+	text-decoration:underline;
+}
+
+
+
+/* 
+==========================================================================
+Modal
+==========================================================================
+*/
+
+.modal-body {
+	-webkit-font-smoothing: antialiased;
+	border-top: transparent;
+	padding: 0.5px;
+	background-color: #303030;
+}
+
+.modal-header {
+	background-color: #303030;
+	border-bottom: transparent;
+}
+
+.modal-footer {
+	background-color: #303030;
+	border-top: transparent;
+}
+
+.modal-title {
+	border: transparent;
+	color: #edec51;
+}
+
+.residents-table {
+	background-color: #303030;
+}
+
+.residents-table td {
+	border-bottom: 0.5px solid #353535;
+}
+
+.residents-table th {
+	background-color: #303030;
+	border-bottom: #edec51;
+}
+
+.residents-table tbody tr:hover td {
+    background-color: #343434;
+}
+
+.residents-table thead>tr>th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #edec51;
+}
+
+.statistics-table {
+	background-color: #303030;
+}
+
+.statistics-table td {
+	border-bottom: 0.5px solid #353535;
+}
+
+.statistics-table th {
+	background-color: #303030;
+	border-bottom: #edec51;
+}
+
+.statistics-table tbody tr:hover td {
+    background-color: #343434;
+}
+
+.statistics-table thead>tr>th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #edec51;
+}
+
+
+
+/* 
+==========================================================================
+Footer
+==========================================================================
+*/
+
+.footer {
+	-webkit-font-smoothing: antialiased;
+	background: #1a1a1a;
+    background-image: url('/static/images/footer_darth_vader.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+	height: auto;
+	padding-bottom: 30px;
+	position: relative;
+	width: 100%;
+	border-top: 1px solid #2a2a2a;
+}
+.footer p {
+	margin: 0;
+}
+.footer img {
+	max-width: 100%;
+}
+.footer h3 {
+	color: #ddd;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 27px;
+	padding: 40px 0 10px;
+	text-transform: uppercase;
+}
+.footer ul {
+	font-size: 13px;
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	margin-top: 15px;
+	color: #ddd;
+}
+.footer ul li a {
+	padding: 0 0 5px 0;
+	display: block;
+}
+.footer a {
+	color: #858a8d;
+}
+
+.footer a:hover {
+	color: #edec51;
+}
+
+/*Social buttons*/
+.social li {
+	background: none repeat scroll 0 0 #2a2a2a;
+	border: 2px solid #2a2a2a;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	-ms-border-radius: 50%;
+	border-radius: 50%;
+	float: left;
+	height: 36px;
+	line-height: 36px;
+	margin: 0 8px 0 0;
+	padding: 0;
+	text-align: center;
+	width: 36px;
+	transition: all 0.5s ease 0s;
+	-moz-transition: all 0.5s ease 0s;
+	-webkit-transition: all 0.5s ease 0s;
+	-ms-transition: all 0.5s ease 0s;
+	-o-transition: all 0.5s ease 0s;
+}
+
+.social li:hover {
+	transform: scale(1.15) rotate(360deg);
+	-webkit-transform: scale(1.1) rotate(360deg);
+	-moz-transform: scale(1.1) rotate(360deg);
+	-ms-transform: scale(1.1) rotate(360deg);
+	-o-transform: scale(1.1) rotate(360deg);
+}
+.social li a {
+	color: #EDEFF1;
+}
+.social li:hover {
+	border: 2px solid #858a8d;
+	background: #858a8d;
+}
+.social li a i {
+	font-size: 16px;
+	margin: 0 0 0 5px;
+	color: #EDEFF1 !important;
+}
+
+.footer-bottom {
+	background: #1a1a1a;
+	border-top: 1px solid #2a2a2a;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.footer-bottom p {
+	padding-top: 6px;
+}
