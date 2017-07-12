@@ -21,7 +21,7 @@ def main_page():
 
 @app.route('/login', methods=['GET'])
 def show_login():
-    return render_template('login.html')
+    return render_template('form.html', action='login')
 
 
 @app.route('/login', methods=['POST'])
@@ -35,12 +35,12 @@ def do_login():
         session['userid'] = user_id
         return redirect('/')
     else:
-        return render_template('login.html', username=username)
+        return render_template('form.html', username=username)
 
 
 @app.route('/register', methods=['GET'])
 def show_register():
-    return render_template('register.html')
+    return render_template('form.html', action='register')
 
 
 @app.route('/register', methods=['POST'])
@@ -52,7 +52,7 @@ def do_register():
     if user_id > 0:
         return redirect('/login')
     else:
-        return render_template('register.html', reg_error=True, username=username)
+        return render_template('form.html', reg_error=True, username=username)
 
 
 @app.route('/logout')
