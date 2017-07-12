@@ -73,7 +73,7 @@ function createPlanetsTable() {
         $("#data-row-" + i).append('<td>' + planet['climate'] + '</td>');
         $("#data-row-" + i).append('<td>' + planet['terrain'] + '</td>');
         if (planet['surface_water'] !== 'unknown') {
-            var waterSuffix = ' %';
+            var waterSuffix = '%';
         } else {
             var waterSuffix = '';
         }
@@ -100,7 +100,7 @@ function createPlanetsTable() {
                                         planet['name'] + '" data-planet-url="' + planet['url'] + '">' + planet['residents'].length + ' resident' + 
                                         residentSuffix + '</button></td>');
         }
-        if (!$("#btn-login").length) {
+        if ($("#user_logged_in").length) {
             $("#data-row-" + i).append('<td><button class="btn btn-default btn-vote" data-planet-url="' + planet['url'] +
                                         '"><span class="glyphicon glyphicon-plus"></span></button></td>');
         }

@@ -19,6 +19,13 @@ def main_page():
     return render_template('index.html', planet_data=planet_data, username=user)
 
 
+@app.route('/characters')
+def characters_page():
+    characters_data = requests.get('https://swapi.co/api/people/').json()
+    print(characters_data)
+    return render_template('characters.html', characters_data=characters_data)
+
+
 @app.route('/login', methods=['GET'])
 def show_login():
     return render_template('form.html', action='login')
