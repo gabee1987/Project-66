@@ -235,6 +235,10 @@ Modal
 	background-color: #303030;
 }
 
+.modal-body h4 {
+	color: #ddd;
+}
+
 .modal-header {
 	background-color: #303030;
 	border-bottom: transparent;
