@@ -21,4 +21,14 @@ $(document).ready(function(){
       $('.nav li').removeClass('active');
       $(this).addClass('active');
     });
+
+    $('#characters-deck').on('hover', $('.card'),  function() {
+        alert('hey');
+    $('.card-block')
+        .stop(true, true)
+        .animate({
+            height:"toggle",
+            opacity:"toggle"
+        },200);
+    });
 });
