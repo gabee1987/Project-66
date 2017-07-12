@@ -8,20 +8,20 @@
     <meta name="apple-mobile-web-app-title" content="Star Wars">
     <link rel="icon" href="/static/images/favicon.ico">
 
-    <!-- Bootstrap 4 alpha CSS -->
+    <!-- Bootstrap 4 alpha CSS
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
             integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-            crossorigin="anonymous"> 
-
-    <!-- Bootstrap CSS 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
             crossorigin="anonymous"> -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous"> 
 
     <!-- Datatables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 
     <!-- Own CSS -->
-    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/characters.css">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -31,12 +31,12 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
 
-    <!-- Bootstrap 4 alpha js -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+    <!-- Bootstrap Javascript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
 
     <script src="https://use.fontawesome.com/a8063379b9.js"></script>
+
 
     <!-- Datatables javascript -->
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js" defer></script>
@@ -54,39 +54,34 @@
             <img src="/static/images/sw_logo.png">
         </div>
     </div>
+
     <!-- Navbar -->
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="/">Star Wars</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item ml-auto"><a class="nav-link" href="/">Planets</a></li>
-                <li class="nav-item ml-auto"><a class="nav-link" href="/characters">Characters</a>
-                <!--<li><a href="#">Page 1</a></li>-->
-            </ul>
-            <ul class="navbar-nav navbar-toggler-right mr-auto">
-                {% if username %}
-                <li class="nav-item ml-auto">
-                    <p> Logged in as {{ username }} </p>
-                </li>
-                {% else %}
-                <li class="nav-item ml-auto">
-                    <span class="navbar-text">
-                        <p> Not logged in </p>
-                    </span>
-                </li>
-                {% endif %}
-                <li class="nav-item ml-auto"><a class="nav-link" href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
-                {% if username %}
-                <li class="nav-item ml-auto"></li>
-                <li class="nav-item ml-auto"><a class="nav-link" href="/logout" id="myBtn"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
-                {% else %}
-                <li class="nav-item"><a class="nav-link" href="/login" id="myBtn"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
-                {% endif %}
-            </ul>
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Star Wars</a>
         </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Planets</a></li>
+            <li class="active"><a href="/characters">Characters</a>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if username %}
+            <li>
+                <p> Logged in as {{ username }} </p>
+            </li>
+            {% else %}
+            <li>
+                <p> Not logged in </p>
+            </li>
+            {% endif %}
+            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+            {% if username %}
+            <li></li>
+            <li><a href="/logout" id="myBtn"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+            {% else %}
+            <li><a href="/login" id="myBtn"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+            {% endif %}
+        </ul>
     </nav>
 
     <div class="container-fluid">
@@ -99,10 +94,12 @@
         <button id="btn-prev" type="button" class="btn btn-primary" data-previous="{{ characters_data['previous'] }}"> Previous </button>
         <button id="btn-next" type="button" class="btn btn-primary" data-next="{{ characters_data['next'] }}"> Next </button>
         <br>
-        <div id="characters-deck" class="card-deck">
+        <div class="card-deck">
+            <div id="characters-deck" class="row align-items-start">
 
         <!--character-cards will be displayed here-->
 
+            </div>
         </div>    
     </div>
     <!-- Footer -->
