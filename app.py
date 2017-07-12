@@ -22,7 +22,6 @@ def main_page():
 @app.route('/characters')
 def characters_page():
     characters_data = requests.get('https://swapi.co/api/people/').json()
-    print(characters_data)
     return render_template('characters.html', characters_data=characters_data)
 
 
