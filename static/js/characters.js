@@ -43,7 +43,6 @@ function getCharacterCards() {
         for (let i = 0; i < charactersData.length; i++) {
             var character = charactersData[i];
             var pictureId = character['url'].replace ( /[^\d]/g, '' );
-            console.log(pictureId);
             $('#characters-deck').append(`
                                         <div class="card col-6 col-sm-3">
                                             <img class="card-img-top" src="https://starwars-visualguide.com/assets/img/characters/${pictureId}.jpg" alt="Card image cap">
@@ -62,9 +61,10 @@ function changeCharacterData(newData) {
     $('#characters-deck').html('');
     for (let i = 0; i < charactersData.length; i++) {
             var character = charactersData[i];
+            var pictureId = character['url'].replace ( /[^\d]/g, '' );
             $('#characters-deck').append(`
                                         <div class="card" style="width: 30rem;">
-                                            <img class="card-img-top" src=" imagelink " alt="Card image cap">
+                                            <img class="card-img-top" src="https://starwars-visualguide.com/assets/img/characters/${pictureId}.jpg" alt="Card image cap">
                                             <div class="card-block">
                                                 <h4 class="card-title"> ${charactersData[i]['name']} </h4>
                                                 <a href="#" class="btn btn-primary">Details</a>
