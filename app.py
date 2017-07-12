@@ -19,6 +19,11 @@ def main_page():
     return render_template('index.html', planet_data=planet_data, username=user)
 
 
+@app.route('/characters')
+def characters_page():
+    return render_template('characters.html')
+
+
 @app.route('/login', methods=['GET'])
 def show_login():
     return render_template('login.html')
