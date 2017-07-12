@@ -89,13 +89,16 @@ Navbar
     color: #edec51;
 }
 
- .navbar .navbar-nav > .active > a, 
+ .navbar .navbar-nav > .active > a {
+	 background: none;
+ } 
  .navbar .navbar-nav > .active > a:hover, 
  .navbar .navbar-nav > .active > a:focus {
 	color: #edec51;
     background: #222222;
 	border-bottom: 2px solid #edec51;
-
+	margin-bottom: -2px;
+	padding: -2px;
  }
 
 
