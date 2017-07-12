@@ -65,12 +65,14 @@ Navbar
 
 
 .navbar {
+	height: 3.1em;
 	-webkit-font-smoothing: antialiased;
     border-radius: 0;
 	border-bottom: 1px solid #edec51; 
 }
 
-.navbar-inverse .navbar-header > a:hover, .navbar-header > a:focus {
+.navbar-inverse .navbar-brand > a:hover, .navbar-header > a:focus {
+	background: none;
     color: #edec51;
 }
 
@@ -95,7 +97,7 @@ Navbar
  .navbar .navbar-nav > .active > a:hover, 
  .navbar .navbar-nav > .active > a:focus {
 	color: #edec51;
-    background: #222222;
+    background: none;
 	border-bottom: 2px solid #edec51;
 	margin-bottom: -2px;
 	padding: -2px;
