@@ -1,6 +1,6 @@
 function main() {
-    var password = document.getElementById('inputPassword')
-    var confirm_password = document.getElementById('inputPasswordVerify');
+    var password = document.getElementById('form-password')
+    var confirm_password = document.getElementById('form-password-chk');
 
    function validatePassword(){
         if(password.value !== confirm_password.value) {

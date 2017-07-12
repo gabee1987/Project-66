@@ -13,7 +13,11 @@
             crossorigin="anonymous">
         <!-- Own CSS -->
         <link rel="stylesheet" href="/static/css/form-elements.css">
+        {% if action == 'register' %}
         <link rel="stylesheet" href="/static/css/signup.css">
+        {% else %}
+        <link rel="stylesheet" href="/static/css/login.css">
+        {% endif %}
         <!-- Google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <!-- JQuery -->
@@ -31,7 +35,11 @@
         <script src="/static/js/passCheck.js" defer></script>
     </head>
     <body>
-        
+        {% if action == 'register' %}
+          {% set suffix = 'up' %}
+        {% else %}
+          {% set suffix = 'in' %}
+        {% endif %}
         <!-- Top content -->
         <div class="top-content">
         	
@@ -39,32 +47,34 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>The world of Star Wars</strong> Sign up </h1>
+                            <h1><strong>The world of Star Wars</strong> Sign {{ suffix }} </h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
-                        			<h3>Sign up to the site</h3>
-                            		<p>Enter your username and password to sign up:</p>
+                        			<h3>Sign {{ suffix }} to the site</h3>
+                            		<p>Enter your username and password to sign {{ suffix }}:</p>
                         		</div>
                         		<div class="form-top-right">
                         			<img src="/static/images/sw_logo_mini.png">
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="/register" method="POST" class="login-form">
+			                    <form role="form" action="/{{ action }}" method="POST" class="login-form">
 			                    	<div class="form-group">
 			                        	<input type="text" name="username" placeholder="Username..." class="form-username form-control" id="form-username" required>
 			                        </div>
 			                        <div class="form-group">
                                         <input type="password" name="password" placeholder="Type Password..." class="form-password form-control" id="form-password" minlength="5" required>
                                     </div>
+                                    {% if action == 'register' %}
                                     <div class="form-group">
                                         <input type="password" name="password" placeholder="Confirm Password..." class="form-password form-control" id="form-password-chk" minlength="5" required>
                                     </div>
-			                        <button type="submit" class="btn">Sign up!</button>
+                                    {% endif %}
+			                        <button type="submit" class="btn">Sign {{ suffix }}!</button>
 			                    </form>
 		                    </div>
                         </div>
