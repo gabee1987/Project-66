@@ -1,48 +1,18 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base_template.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:description" content="A little web application which shows data about the Star Wars universe, store visitor preferences with cookies and handle user login with sessions.">
-    <meta name="apple-mobile-web-app-title" content="Star Wars">
-    <link rel="icon" href="/static/images/favicon.ico">
+{% block own_css %}
+<link rel="stylesheet" href="/static/css/index.css">
+{% endblock %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-
-    <!-- Datatables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-
-    <!-- Own CSS -->
-    <link rel="stylesheet" href="/static/css/index.css">
-
-    <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
-    <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-        crossorigin="anonymous"></script>
-
-    <!-- Bootstrap Javascript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-    <script src="https://use.fontawesome.com/a8063379b9.js"></script>
-
-    <!-- Datatables javascript -->
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js" defer></script>
-
-    <!-- Own Javascript -->
-    <script src="/static/js/main.js" defer></script>
-    <script src="/static/js/login.js" defer></script>
-    <script src="/static/js/display.js" defer></script>
-    <title>The world of Star Wars</title>
-</head>
+{% block own_js %}
+<script src="/static/js/main.js" defer></script>
+<script src="/static/js/login.js" defer></script>
+<script src="/static/js/display.js" defer></script>
+{% endblock %}
 
 <body>
 
+    {% block modals %}
     <!-- Modal for residents -->
     <div class="modal fade" id="residents-modal" tabindex="-1" role="dialog" aria-labelledby="residentsModal">
         <div class="modal-dialog modal-lg" role="document">
@@ -121,6 +91,7 @@
             </div>
         </div>
     </div>
+    {% endblock %}
 
     <!-- Header -->
     <div class="jumbotron">
@@ -160,13 +131,16 @@
     </nav>
 
     <div class="container-fluid">
+        {% block content_title %}
         <!-- Title -->
         <div id="page-title">
             <h2>Star Wars universe database</h2>
             <p>A little web application which shows data about the Star Wars universe, store visitor preferences with cookies
                 and handle user login with sessions.</p>
         </div>
+        {% endblock %}
         <br>
+        {% block main_content %}
         <!-- Page swap buttons -->
         <button id="btn-prev" type="button" class="btn btn-primary" data-previous="{{ planet_data['previous'] }}"> Previous </button>
         <button id="btn-next" type="button" class="btn btn-primary" data-next="{{ planet_data['next'] }}"> Next </button>
@@ -188,40 +162,5 @@
 
             </tbody>
         </table>
+        {% endblock %}
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer" id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                        <h3> Star wars links </h3>
-                        <ul>
-                            <li> <a href="http://www.starwars.com/"> StarWars.com </a> </li>
-                            <li> <a href="http://www.theforce.net/"> TheForce.net </a> </li>
-                            <li> <a href="https://www.starwarsnewsnet.com/"> StarWarsNews.net </a> </li>
-                            <li> <a href="http://www.starwarsunderworld.com/"> StarWarsUnderworld.com </a> </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
-                        <h3> Social </h3>
-                        <ul class="social">
-                            <li> <a href="https://www.facebook.com/StarWars"> <i class=" fa fa-facebook">   </i> </a> </li>
-                            <li> <a href="https://twitter.com/starwars"> <i class="fa fa-twitter">   </i> </a> </li>
-                            <li> <a href="https://plus.google.com/+StarWars/posts"> <i class="fa fa-google-plus">   </i> </a>                                </li>
-                            <li> <a href="http://instagram.com/starwars"> <i class="fa fa-instagram">   </i> </a> </li>
-                            <li> <a href="http://www.youtube.com/user/starwars"> <i class="fa fa-youtube">   </i> </a> </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Bottom footer-->
-        <div class="footer-bottom">
-            <p class="text-center"> The Star Wars Universe planets Codecool 2017. by Gabor Koncz </p>
-        </div>
-    </footer>
-</body>
-
-</html>
