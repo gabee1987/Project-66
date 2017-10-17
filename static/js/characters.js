@@ -22,7 +22,7 @@ function main() {
 }
 
 function getCharacterCards() {
-    var charUrl = 'http://swapi.co/api/people/'
+    var charUrl = 'https://swapi.co/api/people/';
     $.ajax({
             type: 'GET',
             url: charUrl,
