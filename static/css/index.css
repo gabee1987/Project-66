@@ -108,7 +108,7 @@ Navbar
     top: 0;
     width: 100%;
 	border-bottom: 0.5px solid #edec51;
-	box-shadow: 0px 5px 15px #1b1b1b;
+	box-shadow: 0px 5px 5px #1b1b1b;
 }
 
 .affix img {
@@ -119,6 +119,14 @@ Navbar
 
 .affix + .container-fluid {
     padding-top: 70px;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+}
+
+.affix.navbar-nav.navbar-right:last-child {
+	margin-right: 0;
 }
 
 
