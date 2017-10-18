@@ -100,7 +100,7 @@ function createPlanetsTable() {
                                         planet['name'] + '" data-planet-url="' + planet['url'] + '">' + planet['residents'].length + ' resident' + 
                                         residentSuffix + '</button></td>');
         }
-        if ($("#user_logged_in").length) {
+        if ($(".planets-header").length === 8) {
             $("#data-row-" + i).append('<td><button class="btn btn-default btn-vote" data-planet-url="' + planet['url'] +
                                         '"><span class="glyphicon glyphicon-plus"></span></button></td>');
         }
