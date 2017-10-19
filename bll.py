@@ -41,4 +41,5 @@ def get_voted_planets():
 def get_character_description(char_id):
     sql_string = "SELECT description FROM characters WHERE char_id = %s;"
     sql_variable = (char_id, )
-    dal.get_data_from_table(sql_string, sql_variable)
+    result = dal.get_data_from_table(sql_string, sql_variable)
+    return result
