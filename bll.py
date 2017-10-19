@@ -36,3 +36,9 @@ def get_voted_planets():
                  GROUP BY planet_id ORDER BY votes desc;"
     result = dal.get_json_from_table(sql_string)
     return result
+
+
+def get_character_description(char_id):
+    sql_string = "SELECT description FROM characters WHERE char_id = %s;"
+    sql_variable = (char_id, )
+    dal.get_data_from_table(sql_string, sql_variable)

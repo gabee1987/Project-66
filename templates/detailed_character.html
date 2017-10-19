@@ -83,10 +83,10 @@
                 </div>
                 <div class="col-md-2">
                     <ul id="character-bio-2">
-                        <li>Homeworld </li>     <p>{{ character_data['homeworld'] }}</p>
-                        <li>Species </li>       {% for specie in character_data['species'] %} <p>{{ specie }}</p> {% endfor %}
-                        <li>Vehicles </li>      {% for vehicle in character_data['vehicles'] %} <p>{{ vehicle }}</p> {% endfor %}
-                        <li>Starships </li>     {% for starship in character_data['starships'] %} <p>{{ starship }}</p> {% endfor %}
+                        <li>Homeworld </li>     <p id="homeworld">{{ character_data['homeworld'] }}</p>
+                        <li>Species </li>       {% for specie in character_data['species'] %} <p id="species">{{ specie }}</p> {% endfor %}
+                        <li>Vehicles </li>      {% for vehicle in character_data['vehicles'] %} <p id="vehicles">{{ vehicle }}</p> {% endfor %}
+                        <li>Starships </li>     {% for starship in character_data['starships'] %} <p id="starships">{{ starship }}</p> {% endfor %}
                     </ul>
                 </div>
                 <div id="films" class="col-md-2">
