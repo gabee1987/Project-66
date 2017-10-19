@@ -1,5 +1,6 @@
 DROP TABLE if exists "swuser" CASCADE;
 DROP TABLE if exists "planet_votes";
+DROP TABLE if exists "characters";
 
 CREATE TABLE "swuser" (
 	"id" serial NOT NULL,
@@ -22,6 +23,16 @@ CREATE TABLE "planet_votes" (
   OIDS=FALSE
 );
 
+
+CREATE TABLE "characters" (
+	"id" serial NOt NULL,
+	"char_id" integer NOT NULL,
+	"name" varchar(30) NOT NULL,
+	"description" text NOT NULL,
+	CONSTRAINT characters_pk PRIMARY KEY ("id")
+) WITH (
+	OIDS=FALSE
+);
 
 
 
