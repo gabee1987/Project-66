@@ -27,8 +27,8 @@ def characters_page():
 
 @app.route('/characters/<character_id>')
 def detailed_characters(character_id):
-    character_data = request.get('https://swapi.co/api/people/%d' % character_id).json()
-    return render_template('detailed-character.html', character_data=character_data)
+    character_data = requests.get('https://swapi.co/api/people/%s' % character_id).json()
+    return render_template('detailed_character.html', character_data=character_data, character_id=character_id)
 
 
 @app.route('/login', methods=['GET'])

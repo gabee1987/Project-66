@@ -1,0 +1,120 @@
+{% extends 'base_template.html' %}
+
+<!-- Own CSS -->
+{% block own_css %}
+<link rel="stylesheet" href="/static/css/detailed_character.css">
+{% endblock %}
+
+<!-- Own Javascript -->
+{% block own_js %}
+<script src="/static/js/detailed_character.js" defer></script>
+<script src="/static/js/display.js" defer></script>
+{% endblock %} 
+
+{% block title %}
+<title>The world of Star Wars</title>
+{% endblock %}
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="jumbotron">
+        <div id="sw-logo">
+            <img src="/static/images/sw_logo.png">
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Star Wars</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Planets</a></li>
+            <li class="active"><a href="/characters">Characters</a>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if username %}
+            <li>
+                <p> Logged in as {{ username }} </p>
+            </li>
+            {% else %}
+            <li>
+                <p> Not logged in </p>
+            </li>
+            {% endif %}
+            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+            {% if username %}
+            <li></li>
+            <li><a href="/logout" id="myBtn"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+            {% else %}
+            <li><a href="/login" id="myBtn"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        {% block content_title %}
+        <br>
+        {% endblock %} {% block main_content %}
+        <!-- Detailed character pane -->
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-lg-6" id="page-title">
+                <h3>{{ character_data['name'] }}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div id="character-picture" class="col-md-3">
+                <img src="https://starwars-visualguide.com/assets/img/characters/{{ character_id }}.jpg">
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <ul id="character-bio">
+                        <li>Height </li>        <p>{{ character_data['height'] }}</p>
+                        <li>Mass </li>          <p>{{ character_data['mass'] }}</p>
+                        <li>Hair color </li>    <p>{{ character_data['hair_color'] }}</p>
+                        <li>Skin color </li>    <p>{{ character_data['skin_color'] }}</p>
+                        <li>Eye color </li>     <p>{{ character_data['eye_color'] }}</p>
+                        <li>Birth year </li>    <p>{{ character_data['birth_year'] }}</p>
+                        <li>Gender </li>        <p>{{ character_data['gender'] }}</p>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul id="character-bio-2">
+                        <li>Homeworld </li>     <p>{{ character_data['homeworld'] }}</p>
+                        <li>Species </li>       {% for specie in character_data['species'] %} <p>{{ specie }}</p> {% endfor %}
+                        <li>Vehicles </li>      {% for vehicle in character_data['vehicles'] %} <p>{{ vehicle }}</p> {% endfor %}
+                        <li>Starships </li>     {% for starship in character_data['starships'] %} <p>{{ starship }}</p> {% endfor %}
+                    </ul>
+                </div>
+                <div id="films" class="col-md-2">
+                    <h3>Films</h3>
+                    {% for film in character_data['films'] %}
+                        <p>{{ film }}</p>
+                    {% endfor %}
+                </div>
+                <div id="">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                
+                <div class="col-lg-8">
+                    <div id="character-desc">
+                        <h3>Character Descreption</h3>
+                        <p>
+                            Luke Skywalker was a Tatooine farmboy who rose from humble beginnings to become one of the greatest Jedi the galaxy has ever known. Along with his friends Princess Leia and Han Solo, Luke battled the evil Empire, discovered the truth of his parentage, and ended the tyranny of the Sith. A generation later, the location of the famed Jedi master was one of the galaxy’s greatest mysteries.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}

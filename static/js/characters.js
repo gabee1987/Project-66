@@ -47,7 +47,7 @@ function getCharacterCards() {
                                         <div class="card col-6 col-sm-3" style="background-image: url('https://starwars-visualguide.com/assets/img/characters/${pictureId}.jpg');">
                                             <div class="card-block">
                                                 <h4 class="card-title"> ${charactersData[i]['name']} </h4>
-                                                <a href="#" class="btn btn-primary">Details</a>
+                                                <a href="/characters/${pictureId}" class="btn btn-primary">Details</a>
                                             </div>
                                         </div>
                                         `);
