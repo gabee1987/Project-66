@@ -83,16 +83,16 @@
                 </div>
                 <div class="col-md-2">
                     <ul id="character-bio-2">
-                        <li>Homeworld </li>     <p id="homeworld">{{ character_data['homeworld'] }}</p>
-                        <li>Species </li>       {% for specie in character_data['species'] %} <p id="species">{{ specie }}</p> {% endfor %}
-                        <li>Vehicles </li>      {% for vehicle in character_data['vehicles'] %} <p id="vehicles">{{ vehicle }}</p> {% endfor %}
-                        <li>Starships </li>     {% for starship in character_data['starships'] %} <p id="starships">{{ starship }}</p> {% endfor %}
+                        <li>Homeworld </li>     <p id="homeworldUrl">{{ character_data['homeworld'] }}</p>
+                        <li>Species </li>       {% for specie in character_data['species'] %} <p id="speciesUrl">{{ specie }}</p> {% endfor %}
+                        <li>Vehicles </li>      {% for vehicle in character_data['vehicles'] %} <p id="vehiclesUrl">{{ vehicle }}</p> {% endfor %}
+                        <li>Starships </li>     {% for starship in character_data['starships'] %} <p id="starshipsUrl">{{ starship }}</p> {% endfor %}
                     </ul>
                 </div>
                 <div id="films" class="col-md-2">
                     <h3>Films</h3>
                     {% for film in character_data['films'] %}
-                        <p>{{ film }}</p>
+                        <p id="filmsUrl">{{ film }}</p>
                     {% endfor %}
                 </div>
                 <div id="">
@@ -108,7 +108,7 @@
                     <div id="character-desc">
                         <h3>Character Descreption</h3>
                         <p>
-                            Luke Skywalker was a Tatooine farmboy who rose from humble beginnings to become one of the greatest Jedi the galaxy has ever known. Along with his friends Princess Leia and Han Solo, Luke battled the evil Empire, discovered the truth of his parentage, and ended the tyranny of the Sith. A generation later, the location of the famed Jedi master was one of the galaxy’s greatest mysteries.
+                            {{ character_description[0][0] }}
                         </p>
                     </div>
                 </div>
